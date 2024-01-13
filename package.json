@@ -1,0 +1,31 @@
+{
+  "name": "todo-spec",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
+  },
+  "prettier": "@vercel/style-guide/prettier",
+  "dependencies": {
+    "next": "14.0.4",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@vercel/style-guide": "5.2.0-canary.1",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "14.0.4",
+    "eslint-plugin-tailwindcss": "3.13.1",
+    "postcss": "^8",
+    "prettier": "3.2.1",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}
