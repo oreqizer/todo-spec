@@ -12,7 +12,7 @@ export default function ToggleAll({
   return (
     <button
       className={clsx(
-        'absolute left-4 top-4 text-xl rotate-90',
+        'text-xl w-8 rotate-90',
         allDone
           ? 'text-neutral-700 dark:text-neutral-200'
           : 'text-neutral-500 dark:text-neutral-400',

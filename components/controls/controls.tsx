@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Link from 'next/link';
+import { revalidatePath } from 'next/cache';
 import clsx from 'clsx';
 import { queryActive } from '@/data/queries';
 import { write } from '@/data/db';
 import classes from './controls.module.css';
-import { revalidatePath } from 'next/cache';
 
 export default function Controls({
   itemsLeft,

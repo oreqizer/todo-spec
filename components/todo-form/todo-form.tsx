@@ -3,13 +3,13 @@
 import * as React from 'react';
 import { addTodo } from '@/components/todo-form/actions';
 import InputField from '@/components/input-field';
-import { Todo } from '@/data/db';
 
-export default function TodoForm({ todos }: { todos: Todo[] }): JSX.Element {
+export default function TodoForm(): JSX.Element {
   const ref = React.useRef<HTMLInputElement>(null);
 
   return (
     <form
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises -- server action
       action={async (form: FormData) => {
         if (ref.current !== null) {
           ref.current.value = '';
@@ -18,7 +18,14 @@ export default function TodoForm({ todos }: { todos: Todo[] }): JSX.Element {
         await addTodo(form);
       }}
     >
-      <InputField name="text" label="text" ref={ref} />
+      <InputField
+        name="text"
+        label="text"
+        placeholder="What needs to be done?"
+        type="text"
+        ref={ref}
+        size={48}
+      />
     </form>
   );
 }
