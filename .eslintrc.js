@@ -29,6 +29,8 @@ module.exports = {
         '@typescript-eslint/no-shadow': 'off', // naming is hard
         '@typescript-eslint/non-nullable-type-assertion-style': 'off', // using as is more explicit
         '@typescript-eslint/strict-boolean-expressions': 'error', // explicit is good
+        // Imports
+        'import/no-default-export': 'off', // React components
       },
     },
     {

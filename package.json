@@ -5,14 +5,17 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "next lint",
+    "fmt": "prettier --write .",
+    "lint": "next lint --dir .",
     "start": "next start"
   },
   "prettier": "@vercel/style-guide/prettier",
   "dependencies": {
+    "clsx": "2.1.0",
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "server-only": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
