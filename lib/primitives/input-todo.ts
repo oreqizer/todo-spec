@@ -1,3 +1,5 @@
 import { clsx } from 'clsx';
 
-export const inputStyles = clsx('w-full py-4 bg-transparent font-light placeholder:italic text-2xl outline-0 text-neutral-700 dark:text-neutral-400');
+export const inputStyles = clsx(
+  'w-full bg-transparent py-4 text-2xl font-light text-neutral-700 outline-0 placeholder:italic dark:text-neutral-400',
+);

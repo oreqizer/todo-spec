@@ -1,8 +1,8 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
 import { queryAll } from '@/data/queries';
 import { write } from '@/data/db';
-import { revalidatePath } from 'next/cache';
 
 export async function editTodo(form: FormData): Promise<void> {
   const id = Number(form.get('id') as string);

@@ -1,7 +1,8 @@
 import 'server-only';
-import { TodoDTO, read } from '@/data/db';
+import type { TodoDTO } from '@/data/db';
+import { read } from '@/data/db';
 
-export async function queryFilter(filter: string = 'all'): Promise<TodoDTO[]> {
+export async function queryFilter(filter = 'all'): Promise<TodoDTO[]> {
   switch (filter) {
     case 'active':
       return queryActive();

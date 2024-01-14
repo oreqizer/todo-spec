@@ -10,25 +10,25 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
+}): JSX.Element {
   return (
     <html lang="en">
       <body>
-        <main className="bg-neutral-100 dark:bg-neutral-800 h-screen py-4">
-          <div className="min-w-[320px] max-w-[570px] mx-auto px-2">
-            <h1 className="w-full text-center text-8xl font-light text-primary dark:text-primary-light mb-4 mt-0">
+        <main className="h-screen bg-neutral-100 py-4 dark:bg-neutral-800">
+          <div className="mx-auto min-w-[320px] max-w-[570px] px-2">
+            <h1 className="mb-4 mt-0 w-full text-center text-8xl font-light text-primary dark:text-primary-light">
               todos
             </h1>
 
             {children}
 
-            <footer className="text-neutral-600 dark:text-neutral-400 my-16 leading-5 text-xs font-light">
+            <footer className="my-16 text-xs font-light leading-5 text-neutral-600 dark:text-neutral-400">
               <p className="text-center">Double-click to edit a todo</p>
               <p className="text-center">
                 Created by{' '}
                 <a
-                  href="https://github.com/oreqizer"
                   className="font-normal hover:underline"
+                  href="https://github.com/oreqizer"
                 >
                   oreqizer
                 </a>
@@ -36,8 +36,8 @@ export default function RootLayout({
               <p className="text-center">
                 Inspired by{' '}
                 <a
-                  href="http://todomvc.com"
                   className="font-normal hover:underline"
+                  href="http://todomvc.com"
                 >
                   TodoMVC
                 </a>

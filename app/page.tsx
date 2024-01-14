@@ -17,8 +17,8 @@ export default async function Index({
   ]);
 
   return (
-    <section className="bg-neutral-50 dark:bg-neutral-900 shadow-lg">
-      <div className="relative flex items-center gap-x-4 px-4 w-full shadow-[inset_0_-2px_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_-2px_1px_rgba(255,255,255,0.1)]">
+    <section className="bg-neutral-50 shadow-lg dark:bg-neutral-900">
+      <div className="relative flex w-full items-center gap-x-4 px-4 shadow-[inset_0_-2px_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_-2px_1px_rgba(255,255,255,0.1)]">
         <ToggleAll allDone={itemsLeft === 0} />
 
         <TodoForm />
@@ -28,16 +28,16 @@ export default async function Index({
         <ul>
           {todos.map((todo) => (
             <Todo
-              text={todo.text}
-              id={todo.id}
               completed={todo.completed}
+              id={todo.id}
               key={todo.id}
+              text={todo.text}
             />
           ))}
         </ul>
       )}
 
-      {itemsLeft !== 0 && <Controls itemsLeft={itemsLeft} />}
+      {itemsLeft !== 0 && <Controls itemsLeft={itemsLeft} show={show} />}
     </section>
   );
 }

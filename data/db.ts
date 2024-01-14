@@ -8,13 +8,15 @@ export interface TodoDTO {
 }
 
 function wait(ms: number): Promise<void> {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
 }
 
 export async function read(): Promise<TodoDTO[]> {
   await wait(20);
 
-  return JSON.parse(String(await fs.readFile('db.json')));
+  return JSON.parse(String(await fs.readFile('db.json'))) as TodoDTO[];
 }
 
 export async function write(todos: TodoDTO[]): Promise<void> {

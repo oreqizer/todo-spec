@@ -15,7 +15,7 @@ function InputField(
   const id = React.useId();
 
   return (
-    <label htmlFor={id} aria-label={label} className="w-full">
+    <label aria-label={label} className="w-full" htmlFor={id}>
       <input {...props} className={inputStyles} id={id} ref={ref} />
     </label>
   );

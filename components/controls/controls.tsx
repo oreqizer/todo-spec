@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Link from 'next/link';
 import { revalidatePath } from 'next/cache';
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 import { queryActive } from '@/data/queries';
 import { write } from '@/data/db';
 import classes from './controls.module.css';
@@ -26,18 +26,18 @@ export default function Controls({
   return (
     <div
       className={clsx(
-        'relative flex justify-between items-center w-full px-4 py-2 text-neutral-500 dark:text-neutral-400 font-light shadow-[inset_0_2px_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_2px_1px_rgba(255,255,255,0.1)]',
+        'relative flex w-full items-center justify-between px-4 py-2 font-light text-neutral-500 shadow-[inset_0_2px_1px_rgba(0,0,0,0.07)] dark:text-neutral-400 dark:shadow-[inset_0_2px_1px_rgba(255,255,255,0.1)]',
         classes.footer,
       )}
     >
-      <div className="flex-1 relative text-left">
+      <div className="relative flex-1 text-left">
         {itemsLeft === 1 ? '1 item left' : `${itemsLeft} items left`}
       </div>
 
-      <div className="flex-1 relative text-center flex justify-between">
+      <div className="relative flex flex-1 justify-between text-center">
         <Link
           className={clsx(
-            'px-2 py-1 border rounded hover:underline',
+            'rounded border px-2 py-1 hover:underline',
             show === undefined
               ? 'border-primary dark:border-primary-light'
               : 'border-transparent',
@@ -48,7 +48,7 @@ export default function Controls({
         </Link>
         <Link
           className={clsx(
-            'px-2 py-1 border rounded hover:underline',
+            'rounded border px-2 py-1 hover:underline',
             show === 'active'
               ? 'border-primary dark:border-primary-light'
               : 'border-transparent',
@@ -59,7 +59,7 @@ export default function Controls({
         </Link>
         <Link
           className={clsx(
-            'px-2 py-1 border rounded hover:underline',
+            'rounded border px-2 py-1 hover:underline',
             show === 'completed'
               ? 'border-primary dark:border-primary-light'
               : 'border-transparent',
@@ -70,11 +70,14 @@ export default function Controls({
         </Link>
       </div>
 
-      <div className="flex-1 relative text-right">
-        <form action={clearCompleted}>
+      <div className="relative flex-1 text-right">
+        <form
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises -- server action
+          action={clearCompleted}
+        >
           <button
-            type="submit"
             className="cursor-pointer font-light hover:underline"
+            type="submit"
           >
             Clear completed
           </button>
