@@ -10,6 +10,7 @@ export default function FormDelete({ id }: { id: number }): JSX.Element {
       <input hidden name="id" readOnly value={id} />
 
       <button
+        aria-label="delete todo"
         className="absolute right-5 top-0 flex h-full items-center text-center group-hover:block"
         type="submit"
       >
