@@ -9,6 +9,13 @@ test.describe('clear complete todos', () => {
   });
 
   test('clears completed todos', async ({ page }) => {
-    test.skip();
+    await page
+      .getByTestId('controls')
+      .getByRole('button', { name: 'Clear completed' })
+      .click();
+
+    await expect(
+      page.getByTestId('todo-list').getByTestId('todo-item'),
+    ).toHaveCount(3);
   });
 });
