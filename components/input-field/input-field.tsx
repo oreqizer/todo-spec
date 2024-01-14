@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { inputStyles } from '@/lib/primitives/input-todo';
+import { inputStyles } from '@/lib/primitives';
 
 function InputField(
   {

@@ -1,7 +1,7 @@
 import { clsx } from 'clsx';
 import * as React from 'react';
-import { editTodo } from '@/components/todo/actions';
-import { inputStyles } from '@/lib/primitives/input-todo';
+import {deleteTodo, editTodo} from '@/components/todo/actions';
+import { inputStyles } from '@/lib/primitives';
 
 export default function FormText({
   id,
@@ -20,7 +20,21 @@ export default function FormText({
 
   const showDone = !isEditing && completed;
 
-  function handleBlur(): void {
+  function handleDelete(): void {
+    const form = new FormData();
+    form.set('id', String(id));
+
+    deleteTodo(form).catch(() => {
+      //
+    });
+  }
+
+  function handleBlur(ev: React.FocusEvent<HTMLInputElement>): void {
+    if (ev.currentTarget.value === '') {
+      handleDelete();
+      return;
+    }
+
     ref.current?.requestSubmit();
 
     onChangeEditing(false);
@@ -30,6 +44,12 @@ export default function FormText({
     onChangeEditing(true);
 
     ev.currentTarget.setSelectionRange(0, ev.currentTarget.value.length);
+  }
+
+  function handleKeyPress(ev: React.KeyboardEvent<HTMLInputElement>): void {
+    if (ev.currentTarget.value === '' && ev.key === 'Enter')  {
+      handleDelete();
+    }
   }
 
   return (
@@ -57,10 +77,15 @@ export default function FormText({
               'outline-1 outline-neutral-300 dark:outline-neutral-600',
           )}
           defaultValue={text}
+          maxLength={100}
+          minLength={2}
           name="text"
           onBlur={handleBlur}
           onDoubleClick={handleDblClick}
+          onKeyPress={handleKeyPress}
+          required
           readOnly={!isEditing}
+          size={40}
           type="text"
         />
       </label>

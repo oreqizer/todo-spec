@@ -5,9 +5,11 @@ import { toggleTodo } from '@/components/todo/actions';
 export default function FormCompleted({
   id,
   completed,
+  isEditing,
 }: {
   id: number;
   completed: boolean;
+  isEditing: boolean;
 }): JSX.Element {
   return (
     <form
@@ -18,18 +20,21 @@ export default function FormCompleted({
 
       <button
         className="left-3 top-0 flex h-full w-8 items-center text-center"
+        disabled={isEditing}
         type="submit"
       >
-        <span
-          className={clsx(
-            'h-7 w-7 rounded-full border text-emerald-300 transition-colors',
-            completed
-              ? 'border-emerald-300'
-              : 'border-neutral-500 dark:border-neutral-400',
-          )}
-        >
-          {completed ? '👏' : null}
-        </span>
+        {!isEditing ? (
+          <span
+            className={clsx(
+              'h-7 w-7 rounded-full border text-emerald-300 transition-colors',
+              completed
+                ? 'border-emerald-300'
+                : 'border-neutral-500 dark:border-neutral-400',
+            )}
+          >
+            {completed ? '👏' : null}
+          </span>
+        ) : null}
       </button>
     </form>
   );

@@ -1,19 +1,27 @@
 'use server';
 
+import { z } from 'zod';
 import { revalidatePath } from 'next/cache';
 import { queryAll } from '@/data/queries';
 import { write } from '@/data/db';
 
+const schemaEdit = z.object({
+  id: z.coerce.number().int(),
+  text: z.string().min(2).max(100),
+});
+
 export async function editTodo(form: FormData): Promise<void> {
-  const id = Number(form.get('id') as string);
-  const text = form.get('text') as string;
+  const result = schemaEdit.safeParse(Object.fromEntries(form));
+  if (!result.success) {
+    throw new Error('Invalid form data');
+  }
 
   const all = await queryAll();
 
   await write(
     all.map((todo) => {
-      if (todo.id === id) {
-        return { ...todo, text };
+      if (todo.id === result.data.id) {
+        return { ...todo, text: result.data.text };
       }
       return todo;
     }),
@@ -22,14 +30,21 @@ export async function editTodo(form: FormData): Promise<void> {
   revalidatePath('/');
 }
 
+const schemaToggle = z.object({
+  id: z.coerce.number().int(),
+});
+
 export async function toggleTodo(form: FormData): Promise<void> {
-  const id = Number(form.get('id') as string);
+  const result = schemaToggle.safeParse(Object.fromEntries(form));
+  if (!result.success) {
+    throw new Error('Invalid form data');
+  }
 
   const all = await queryAll();
 
   await write(
     all.map((todo) => {
-      if (todo.id === id) {
+      if (todo.id === result.data.id) {
         return { ...todo, completed: !todo.completed };
       }
       return todo;
@@ -39,12 +54,19 @@ export async function toggleTodo(form: FormData): Promise<void> {
   revalidatePath('/');
 }
 
+const schemaDelete = z.object({
+  id: z.coerce.number().int(),
+});
+
 export async function deleteTodo(form: FormData): Promise<void> {
-  const id = Number(form.get('id') as string);
+  const result = schemaDelete.safeParse(Object.fromEntries(form));
+  if (!result.success) {
+    throw new Error('Invalid form data');
+  }
 
   const all = await queryAll();
 
-  await write(all.filter((todo) => todo.id !== id));
+  await write(all.filter((todo) => todo.id !== result.data.id));
 
   revalidatePath('/');
 }

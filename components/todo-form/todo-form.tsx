@@ -20,10 +20,13 @@ export default function TodoForm(): JSX.Element {
     >
       <InputField
         label="text"
+        maxLength={100}
+        minLength={2}
         name="text"
         placeholder="What needs to be done?"
         ref={ref}
-        size={48}
+        required
+        size={40}
         type="text"
       />
     </form>

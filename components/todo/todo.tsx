@@ -18,7 +18,7 @@ export default function Todo({
 
   return (
     <li className="group relative flex items-center gap-x-4 border-b border-neutral-200 px-4 font-light last-of-type:border-0 dark:border-neutral-700">
-      {!editing && <FormCompleted completed={completed} id={id} />}
+      <FormCompleted completed={completed} id={id} isEditing={editing} />
 
       <FormText
         completed={completed}

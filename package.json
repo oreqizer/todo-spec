@@ -16,7 +16,8 @@
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
-    "server-only": "0.0.1"
+    "server-only": "0.0.1",
+    "zod": "3.22.4"
   },
   "devDependencies": {
     "@playwright/test": "1.40.1",
