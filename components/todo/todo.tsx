@@ -18,8 +18,8 @@ export default function Todo({
 
   return (
     <li
-      data-testid="todo-item"
       className="group relative flex items-center gap-x-4 border-b border-neutral-200 px-4 font-light last-of-type:border-0 dark:border-neutral-700"
+      data-testid="todo-item"
     >
       <FormCompleted completed={completed} id={id} isEditing={editing} />
 

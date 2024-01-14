@@ -1,4 +1,4 @@
-import {write} from "@/data/db";
+import { write } from '@/data/db';
 
 export async function seed() {
   await write([

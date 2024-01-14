@@ -19,6 +19,7 @@ export default function FormCompleted({
       <input hidden name="id" readOnly value={id} />
 
       <button
+        aria-label="toggle todo"
         className="left-3 top-0 flex h-full w-8 items-center text-center"
         disabled={isEditing}
         type="submit"

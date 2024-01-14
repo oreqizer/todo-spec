@@ -9,10 +9,18 @@ test.describe('toggle a todo as complete', () => {
   });
 
   test('completes a todo', async ({ page }) => {
-    test.skip();
+    const items = page.getByTestId('todo-list').getByTestId('todo-item');
+
+    await items.nth(1).getByLabel('toggle todo').click();
+
+    await expect(items.nth(1).getByLabel('toggle todo')).toHaveText('👏');
   });
 
   test('resets a todo', async ({ page }) => {
-    test.skip();
+    const items = page.getByTestId('todo-list').getByTestId('todo-item');
+
+    await items.first().getByLabel('toggle todo').click();
+
+    await expect(items.nth(1).getByLabel('toggle todo')).toHaveText('');
   });
 });

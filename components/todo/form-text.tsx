@@ -54,13 +54,13 @@ export default function FormText({
 
   return (
     <form
-      data-testid="todo-item-form"
       // eslint-disable-next-line @typescript-eslint/no-misused-promises -- server action
       action={async (form) => {
         await editTodo(form);
 
         onChangeEditing(false);
       }}
+      data-testid="todo-item-form"
     >
       <input hidden name="id" readOnly value={id} />
 
