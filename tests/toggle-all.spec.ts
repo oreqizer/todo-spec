@@ -1,18 +1,34 @@
-import { test, expect } from '@playwright/test';
-import { seed } from '@/playwright/seed';
+import { expect, test } from '@playwright/test';
+import { seed, seedCompleted } from '@/playwright/seed';
 
 test.describe('toggle all todos', () => {
-  test.beforeEach(async ({ page }) => {
-    await seed();
-
-    await page.goto('/');
-  });
-
   test('completes all todos if some are incomplete', async ({ page }) => {
-    test.skip();
+    await seed();
+    await page.goto('/');
+
+    await page.getByLabel('toggle all').click();
+
+    await expect(
+      page
+        .getByTestId('todo-list')
+        .getByTestId('todo-item')
+        .getByLabel('toggle todo')
+        .getByText('👏'),
+    ).toHaveCount(5);
   });
 
   test('resets all todos if all are complete', async ({ page }) => {
-    test.skip();
+    await seedCompleted();
+    await page.goto('/');
+
+    await page.getByLabel('toggle all').click();
+
+    await expect(
+      page
+        .getByTestId('todo-list')
+        .getByTestId('todo-item')
+        .getByLabel('toggle todo')
+        .getByText('👏'),
+    ).toHaveCount(0);
   });
 });

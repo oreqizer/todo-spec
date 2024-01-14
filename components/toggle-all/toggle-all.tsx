@@ -11,6 +11,7 @@ export default function ToggleAll({
 }): JSX.Element {
   return (
     <button
+      aria-label="toggle all"
       className={clsx(
         'w-8 rotate-90 text-xl',
         allDone
