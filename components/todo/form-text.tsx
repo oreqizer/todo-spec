@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 import * as React from 'react';
-import {deleteTodo, editTodo} from '@/components/todo/actions';
+import { deleteTodo, editTodo } from '@/components/todo/actions';
 import { inputStyles } from '@/lib/primitives';
 
 export default function FormText({
@@ -47,7 +47,7 @@ export default function FormText({
   }
 
   function handleKeyPress(ev: React.KeyboardEvent<HTMLInputElement>): void {
-    if (ev.currentTarget.value === '' && ev.key === 'Enter')  {
+    if (ev.currentTarget.value === '' && ev.key === 'Enter') {
       handleDelete();
     }
   }
@@ -83,8 +83,8 @@ export default function FormText({
           onBlur={handleBlur}
           onDoubleClick={handleDblClick}
           onKeyPress={handleKeyPress}
-          required
           readOnly={!isEditing}
+          required
           size={40}
           type="text"
         />
