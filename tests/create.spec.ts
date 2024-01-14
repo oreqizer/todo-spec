@@ -14,6 +14,7 @@ test.describe('create a todo', () => {
     await field.fill('Do stuff');
     await field.press('Enter');
 
+    await expect(page.getByTestId('todo-item')).toHaveCount(6);
     await expect(
       page
         .getByTestId('todo-list')
