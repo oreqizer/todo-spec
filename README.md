@@ -10,7 +10,7 @@ Before running, create a `db.json` file at the root of the project with `[]` as 
 
 ## Tags
 
-- `1` - prepare test environment 
+1. Prepare the application for testing from the user's PoV
 
 ## License
 
