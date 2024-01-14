@@ -25,7 +25,7 @@ export default async function Index({
       </div>
 
       {todos.length > 0 && (
-        <ul>
+        <ul data-testid="todo-list">
           {todos.map((todo) => (
             <Todo
               completed={todo.completed}

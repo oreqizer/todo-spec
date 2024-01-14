@@ -1,15 +1,18 @@
 import { test, expect } from '@playwright/test';
+import { seed } from '@/playwright/seed';
 
 test.describe('toggle a todo as complete', () => {
   test.beforeEach(async ({ page }) => {
+    await seed();
+
     await page.goto('/');
   });
 
-  test('complete a todo', async ({ page }) => {
+  test('completes a todo', async ({ page }) => {
     test.skip();
   });
 
-  test('incomplete a todo', async ({ page }) => {
+  test('resets a todo', async ({ page }) => {
     test.skip();
   });
 });

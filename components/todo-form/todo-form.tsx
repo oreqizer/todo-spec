@@ -9,6 +9,7 @@ export default function TodoForm(): JSX.Element {
 
   return (
     <form
+      data-testid="todo-form"
       // eslint-disable-next-line @typescript-eslint/no-misused-promises -- server action
       action={async (form: FormData) => {
         if (ref.current !== null) {
@@ -19,7 +20,7 @@ export default function TodoForm(): JSX.Element {
       }}
     >
       <InputField
-        label="text"
+        label="todo text"
         maxLength={100}
         minLength={2}
         name="text"

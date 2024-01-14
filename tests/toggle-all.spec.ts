@@ -1,7 +1,10 @@
 import { test, expect } from '@playwright/test';
+import { seed } from '@/playwright/seed';
 
 test.describe('toggle all todos', () => {
   test.beforeEach(async ({ page }) => {
+    await seed();
+
     await page.goto('/');
   });
 

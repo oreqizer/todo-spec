@@ -5,15 +5,15 @@ test.describe('show todos by completion', () => {
     await page.goto('/');
   });
 
-  test('show all todos', async ({ page }) => {
+  test('shows all todos', async ({ page }) => {
     test.skip();
   });
 
-  test('show active todos', async ({ page }) => {
+  test('shows active todos', async ({ page }) => {
     test.skip();
   });
 
-  test('show completed todos', async ({ page }) => {
+  test('shows completed todos', async ({ page }) => {
     test.skip();
   });
 });
