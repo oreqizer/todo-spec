@@ -29,12 +29,13 @@ export default function Controls({
         'relative flex w-full items-center justify-between px-4 py-2 font-light text-neutral-500 shadow-[inset_0_2px_1px_rgba(0,0,0,0.07)] dark:text-neutral-400 dark:shadow-[inset_0_2px_1px_rgba(255,255,255,0.1)]',
         classes.footer,
       )}
+      data-testid="controls"
     >
-      <div className="relative flex-1 text-left">
+      <div className="relative flex-1 text-left" data-testid="items-left">
         {itemsLeft === 1 ? '1 item left' : `${itemsLeft} items left`}
       </div>
 
-      <div className="relative flex flex-1 justify-between text-center">
+      <div className="relative flex flex-1 justify-between text-center" data-testid="filters">
         <Link
           className={clsx(
             'rounded border px-2 py-1 hover:underline',

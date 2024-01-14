@@ -1,6 +1,6 @@
 import { write } from '@/data/db';
 
-export async function seed() {
+export async function seed(): Promise<void> {
   await write([
     {
       id: 1,
