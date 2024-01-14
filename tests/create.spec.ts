@@ -9,14 +9,39 @@ test.describe('create a todo', () => {
   });
 
   test('adds a todo at the end of the list', async ({ page }) => {
-    test.skip();
+    const field = await page.getByTestId('todo-form').getByLabel('todo text');
+
+    await field.fill('Do stuff');
+    await field.press('Enter');
+
+    await expect(
+      page
+        .getByTestId('todo-list')
+        .getByTestId('todo-item-form')
+        .last()
+        .getByLabel('todo text'),
+    ).toHaveValue('Do stuff');
   });
 
   test('cannot create an empty todo', async ({ page }) => {
-    test.skip();
+    const field = await page.getByTestId('todo-form').getByLabel('todo text');
+
+    await field.fill('');
+    await field.press('Enter');
+
+    await expect(
+      page.getByTestId('todo-list').getByTestId('todo-item'),
+    ).toHaveCount(5);
   });
 
   test('cannot create a short todo', async ({ page }) => {
-    test.skip();
+    const field = await page.getByTestId('todo-form').getByLabel('todo text');
+
+    await field.fill('a');
+    await field.press('Enter');
+
+    await expect(
+      page.getByTestId('todo-list').getByTestId('todo-item'),
+    ).toHaveCount(5);
   });
 });

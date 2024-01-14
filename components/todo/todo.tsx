@@ -17,7 +17,10 @@ export default function Todo({
   const [editing, setEditing] = React.useState(false);
 
   return (
-    <li className="group relative flex items-center gap-x-4 border-b border-neutral-200 px-4 font-light last-of-type:border-0 dark:border-neutral-700">
+    <li
+      data-testid="todo-item"
+      className="group relative flex items-center gap-x-4 border-b border-neutral-200 px-4 font-light last-of-type:border-0 dark:border-neutral-700"
+    >
       <FormCompleted completed={completed} id={id} isEditing={editing} />
 
       <FormText
