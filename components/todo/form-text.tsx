@@ -1,7 +1,6 @@
-import { clsx } from 'clsx';
 import * as React from 'react';
 import { deleteTodo, editTodo } from '@/components/todo/actions';
-import { inputStyles } from '@/lib/primitives';
+import InputField from './input-field';
 
 export default function FormText({
   id,
@@ -66,30 +65,21 @@ export default function FormText({
 
       <input hidden type="submit" />
 
-      <label aria-label="todo text">
-        <input
-          className={clsx(
-            inputStyles,
-            'cursor-default py-3 transition-colors',
-            showDone
-              ? 'text-neutral-300 line-through dark:text-neutral-600'
-              : 'text-neutral-500 dark:text-neutral-400',
-            isEditing &&
-              'outline-1 outline-neutral-300 dark:outline-neutral-600',
-          )}
-          defaultValue={text}
-          maxLength={100}
-          minLength={2}
-          name="text"
-          onBlur={handleBlur}
-          onDoubleClick={handleDblClick}
-          onKeyPress={handleKeyPress}
-          readOnly={!isEditing}
-          required
-          size={40}
-          type="text"
-        />
-      </label>
+      <InputField
+        showDone={showDone}
+        isEditing={isEditing}
+        defaultValue={text}
+        maxLength={100}
+        minLength={2}
+        name="text"
+        onBlur={handleBlur}
+        onDoubleClick={handleDblClick}
+        onKeyPress={handleKeyPress}
+        readOnly={!isEditing}
+        required
+        size={40}
+        type="text"
+      />
     </form>
   );
 }

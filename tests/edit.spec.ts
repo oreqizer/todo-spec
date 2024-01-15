@@ -31,6 +31,8 @@ test.describe('edit a todo', () => {
     await field.fill('Do stuff');
     await field.press('Enter');
 
+    await expect(field).not.toBeEditable();
+
     await page.reload();
 
     await expect(field).toHaveValue('Do stuff');
@@ -64,5 +66,8 @@ test.describe('edit a todo', () => {
     await field.press('Enter');
 
     await expect(page.getByTestId('todo-item')).toHaveCount(4);
+    await expect(
+      page.getByTestId('todo-item').getByText('Eat six eggs'),
+    ).not.toBeVisible();
   });
 });

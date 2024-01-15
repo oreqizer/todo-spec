@@ -1,10 +1,11 @@
 import * as React from 'react';
-import Link from 'next/link';
 import { revalidatePath } from 'next/cache';
 import { clsx } from 'clsx';
 import { queryActive } from '@/data/queries';
 import { write } from '@/data/db';
+import Filters from './filters';
 import classes from './controls.module.css';
+import ItemsLeft from "@/components/controls/items-left";
 
 export default function Controls({
   itemsLeft,
@@ -31,48 +32,9 @@ export default function Controls({
       )}
       data-testid="controls"
     >
-      <div className="relative flex-1 text-left" data-testid="items-left">
-        {itemsLeft === 1 ? '1 item left' : `${itemsLeft} items left`}
-      </div>
+      <ItemsLeft itemsLeft={itemsLeft} />
 
-      <div
-        className="relative flex flex-1 justify-between text-center"
-        data-testid="filters"
-      >
-        <Link
-          className={clsx(
-            'rounded border px-2 py-1 hover:underline',
-            show === undefined
-              ? 'border-primary dark:border-primary-light'
-              : 'border-transparent',
-          )}
-          href="/"
-        >
-          All
-        </Link>
-        <Link
-          className={clsx(
-            'rounded border px-2 py-1 hover:underline',
-            show === 'active'
-              ? 'border-primary dark:border-primary-light'
-              : 'border-transparent',
-          )}
-          href="/?show=active"
-        >
-          Active
-        </Link>
-        <Link
-          className={clsx(
-            'rounded border px-2 py-1 hover:underline',
-            show === 'completed'
-              ? 'border-primary dark:border-primary-light'
-              : 'border-transparent',
-          )}
-          href="/?show=completed"
-        >
-          Completed
-        </Link>
-      </div>
+      <Filters show={show} />
 
       <div className="relative flex-1 text-right">
         <form

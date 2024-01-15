@@ -1,11 +1,12 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  darkMode: 'class',
+  // darkMode: 'class',
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './lib/**/*.{js,ts,jsx,tsx,mdx}',
+    './playwright/*.{js,ts,jsx,tsx,mdx}', // wrapper for Playwright
   ],
   theme: {
     extend: {

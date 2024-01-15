@@ -58,6 +58,11 @@ export default defineConfig({
       use: { ...devices['Desktop Firefox'] },
       dependencies: ['Setup'],
     },
+    {
+      name: 'Firefox Dark',
+      use: { ...devices['Desktop Firefox'], colorScheme: 'dark' },
+      dependencies: ['Setup'],
+    },
   ],
 
   /* Run your local dev server before starting the tests */

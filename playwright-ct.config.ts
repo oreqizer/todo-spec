@@ -6,6 +6,7 @@ import viteTSConfigPaths from 'vite-tsconfig-paths';
  */
 export default defineConfig({
   testDir: 'components',
+  testMatch: '*.test-ct.tsx',
   /* Maximum time one test can run for. */
   timeout: 10 * 1000,
   /* Run tests in files in parallel */
@@ -35,16 +36,17 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
+      name: 'Chromium',
       use: { ...devices['Desktop Chrome'] },
     },
     {
-      name: 'firefox',
+      name: 'Firefox',
       use: { ...devices['Desktop Firefox'] },
     },
+    // Dark mode
     {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      name: 'Firefox Dark',
+      use: { ...devices['Desktop Firefox'], colorScheme: 'dark' },
     },
   ],
 });

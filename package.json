@@ -8,8 +8,9 @@
     "fmt": "prettier --write .",
     "lint": "next lint --dir .",
     "start": "next start",
-    "test": "playwright test",
-    "test-ct": "playwright test -c playwright-ct.config.ts"
+    "test": "vitest",
+    "test-ct": "playwright test -c playwright-ct.config.ts",
+    "verify": "playwright test"
   },
   "prettier": "@vercel/style-guide/prettier",
   "dependencies": {
@@ -35,6 +36,7 @@
     "prettier": "3.2.1",
     "tailwindcss": "^3.3.0",
     "typescript": "^5",
-    "vite-tsconfig-paths": "4.2.3"
+    "vite-tsconfig-paths": "4.3.1",
+    "vitest": "1.2.0"
   }
 }
