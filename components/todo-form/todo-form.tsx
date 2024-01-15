@@ -4,7 +4,7 @@ import * as React from 'react';
 import { addTodo } from '@/components/todo-form/actions';
 import InputField from '@/components/input-field';
 
-export default function TodoForm(): JSX.Element {
+export default function TodoForm(): React.JSX.Element {
   const ref = React.useRef<HTMLInputElement>(null);
 
   return (

@@ -33,5 +33,5 @@ export async function seed(): Promise<void> {
 }
 
 export async function seedCompleted(): Promise<void> {
-  await write(todos.map(todo => ({ ...todo, completed: true })));
+  await write(todos.map((todo) => ({ ...todo, completed: true })));
 }

@@ -3,17 +3,20 @@ import { seed } from '@/playwright/seed';
 
 test.describe('create a todo', () => {
   test.beforeEach(async ({ page }) => {
-    await seed();
-
     await page.goto('/');
   });
 
+  test.afterEach(async () => {
+    await seed();
+  });
+
   test('adds a todo at the end of the list', async ({ page }) => {
-    const field = await page.getByTestId('todo-form').getByLabel('todo text');
+    const field = page.getByTestId('todo-form').getByLabel('todo text');
 
     await field.fill('Do stuff');
     await field.press('Enter');
 
+    await expect(field).toHaveValue('');
     await expect(page.getByTestId('todo-item')).toHaveCount(6);
     await expect(
       page
@@ -25,7 +28,7 @@ test.describe('create a todo', () => {
   });
 
   test('cannot create an empty todo', async ({ page }) => {
-    const field = await page.getByTestId('todo-form').getByLabel('todo text');
+    const field = page.getByTestId('todo-form').getByLabel('todo text');
 
     await field.fill('');
     await field.press('Enter');
@@ -36,7 +39,7 @@ test.describe('create a todo', () => {
   });
 
   test('cannot create a short todo', async ({ page }) => {
-    const field = await page.getByTestId('todo-form').getByLabel('todo text');
+    const field = page.getByTestId('todo-form').getByLabel('todo text');
 
     await field.fill('a');
     await field.press('Enter');

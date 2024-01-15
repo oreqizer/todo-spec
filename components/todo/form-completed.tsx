@@ -10,7 +10,7 @@ export default function FormCompleted({
   id: number;
   completed: boolean;
   isEditing: boolean;
-}): JSX.Element {
+}): React.JSX.Element {
   return (
     <form
       // eslint-disable-next-line @typescript-eslint/no-misused-promises -- server action

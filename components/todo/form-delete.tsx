@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { deleteTodo } from '@/components/todo/actions';
 
-export default function FormDelete({ id }: { id: number }): JSX.Element {
+export default function FormDelete({ id }: { id: number }): React.JSX.Element {
   return (
     <form
       // eslint-disable-next-line @typescript-eslint/no-misused-promises -- server action

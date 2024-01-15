@@ -15,7 +15,7 @@ export default function FormText({
   completed: boolean;
   isEditing: boolean;
   onChangeEditing: (editing: boolean) => void;
-}): JSX.Element {
+}): React.JSX.Element {
   const ref = React.useRef<HTMLFormElement>(null);
 
   const showDone = !isEditing && completed;

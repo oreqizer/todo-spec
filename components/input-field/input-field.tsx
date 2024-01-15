@@ -11,7 +11,7 @@ function InputField(
     label: string;
   },
   ref: React.ForwardedRef<HTMLInputElement>,
-): JSX.Element {
+): React.JSX.Element {
   const id = React.useId();
 
   return (

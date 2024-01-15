@@ -3,16 +3,19 @@ import { seed } from '@/playwright/seed';
 
 test.describe('clear complete todos', () => {
   test.beforeEach(async ({ page }) => {
-    await seed();
-
     await page.goto('/');
   });
 
+  test.afterEach(async () => {
+    await seed();
+  });
+
   test('clears completed todos', async ({ page }) => {
-    await page
+    const button = page
       .getByTestId('controls')
-      .getByRole('button', { name: 'Clear completed' })
-      .click();
+      .getByRole('button', { name: 'Clear completed' });
+
+    await button.click();
 
     await expect(
       page.getByTestId('todo-list').getByTestId('todo-item'),

@@ -12,7 +12,7 @@ export default function Controls({
 }: {
   itemsLeft: number;
   show?: string;
-}): JSX.Element {
+}): React.JSX.Element {
   async function clearCompleted(): Promise<void> {
     'use server';
 
@@ -35,7 +35,10 @@ export default function Controls({
         {itemsLeft === 1 ? '1 item left' : `${itemsLeft} items left`}
       </div>
 
-      <div className="relative flex flex-1 justify-between text-center" data-testid="filters">
+      <div
+        className="relative flex flex-1 justify-between text-center"
+        data-testid="filters"
+      >
         <Link
           className={clsx(
             'rounded border px-2 py-1 hover:underline',

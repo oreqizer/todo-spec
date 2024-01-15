@@ -13,7 +13,7 @@ export default function Todo({
   id: number;
   text: string;
   completed: boolean;
-}): JSX.Element {
+}): React.JSX.Element {
   const [editing, setEditing] = React.useState(false);
 
   return (

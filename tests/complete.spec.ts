@@ -3,24 +3,34 @@ import { seed } from '@/playwright/seed';
 
 test.describe('toggle a todo as complete', () => {
   test.beforeEach(async ({ page }) => {
-    await seed();
-
     await page.goto('/');
   });
 
+  test.afterEach(async () => {
+    await seed();
+  });
+
   test('completes a todo', async ({ page }) => {
-    const items = page.getByTestId('todo-list').getByTestId('todo-item');
+    const item = page
+      .getByTestId('todo-list')
+      .getByTestId('todo-item')
+      .nth(1)
+      .getByLabel('toggle todo');
 
-    await items.nth(1).getByLabel('toggle todo').click();
+    await item.click();
 
-    await expect(items.nth(1).getByLabel('toggle todo')).toHaveText('👏');
+    await expect(item).toHaveText('👏');
   });
 
   test('resets a todo', async ({ page }) => {
-    const items = page.getByTestId('todo-list').getByTestId('todo-item');
+    const item = page
+      .getByTestId('todo-list')
+      .getByTestId('todo-item')
+      .nth(0)
+      .getByLabel('toggle todo');
 
-    await items.first().getByLabel('toggle todo').click();
+    await item.click();
 
-    await expect(items.nth(1).getByLabel('toggle todo')).toHaveText('');
+    await expect(item).toHaveText('');
   });
 });

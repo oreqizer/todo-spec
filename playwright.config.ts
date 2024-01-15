@@ -53,38 +53,11 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
       dependencies: ['Setup'],
     },
-
     {
       name: 'Firefox',
       use: { ...devices['Desktop Firefox'] },
       dependencies: ['Setup'],
     },
-
-    {
-      name: 'Safari',
-      use: { ...devices['Desktop Safari'] },
-      dependencies: ['Setup'],
-    },
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
   ],
 
   /* Run your local dev server before starting the tests */

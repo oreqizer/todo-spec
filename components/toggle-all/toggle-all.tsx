@@ -8,7 +8,7 @@ export default function ToggleAll({
   allDone,
 }: {
   allDone: boolean;
-}): JSX.Element {
+}): React.JSX.Element {
   return (
     <button
       aria-label="toggle all"

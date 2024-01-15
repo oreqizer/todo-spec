@@ -1,11 +1,13 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { seed } from '@/playwright/seed';
 
 test.describe('edit a todo', () => {
   test.beforeEach(async ({ page }) => {
-    await seed();
-
     await page.goto('/');
+  });
+
+  test.afterEach(async () => {
+    await seed();
   });
 
   test('todo is read-only by default', async ({ page }) => {

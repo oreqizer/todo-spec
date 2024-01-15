@@ -1,10 +1,7 @@
 import { test, expect } from '@playwright/test';
-import { seed } from '@/playwright/seed';
 
 test.describe('show todos by completion', () => {
   test.beforeEach(async ({ page }) => {
-    await seed();
-
     await page.goto('/');
   });
 

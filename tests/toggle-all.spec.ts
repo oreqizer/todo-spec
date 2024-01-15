@@ -2,6 +2,10 @@ import { expect, test } from '@playwright/test';
 import { seed, seedCompleted } from '@/playwright/seed';
 
 test.describe('toggle all todos', () => {
+  test.afterEach(async () => {
+    await seed();
+  });
+
   test('completes all todos if some are incomplete', async ({ page }) => {
     await seed();
     await page.goto('/');

@@ -9,7 +9,7 @@ export default async function Index({
   searchParams,
 }: {
   searchParams: Record<string, string | string[] | undefined>;
-}): Promise<JSX.Element> {
+}): Promise<React.JSX.Element> {
   const show = searchParams.show as string | undefined;
   const [todos, itemsLeft] = await Promise.all([
     queryFilter(show),
@@ -18,7 +18,10 @@ export default async function Index({
 
   return (
     <section className="bg-neutral-50 shadow-lg dark:bg-neutral-900">
-      <div className="relative flex w-full items-center gap-x-4 px-4 shadow-[inset_0_-2px_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_-2px_1px_rgba(255,255,255,0.1)]">
+      <div
+        className="relative flex w-full items-center gap-x-4 px-4 shadow-[inset_0_-2px_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_-2px_1px_rgba(255,255,255,0.1)]"
+        data-testid="input"
+      >
         <ToggleAll allDone={itemsLeft === 0} />
 
         <TodoForm />
