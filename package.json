@@ -8,7 +8,8 @@
     "fmt": "prettier --write .",
     "lint": "next lint --dir .",
     "start": "next start",
-    "test": "playwright test"
+    "test": "playwright test",
+    "test-ct": "playwright test -c playwright-ct.config.ts"
   },
   "prettier": "@vercel/style-guide/prettier",
   "dependencies": {
@@ -20,7 +21,8 @@
     "zod": "3.22.4"
   },
   "devDependencies": {
-    "@playwright/test": "1.40.1",
+    "@playwright/experimental-ct-react": "1.41.0-beta-1705101589000",
+    "@playwright/test": "1.41.0-beta-1705101589000",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -32,6 +34,7 @@
     "postcss": "^8",
     "prettier": "3.2.1",
     "tailwindcss": "^3.3.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vite-tsconfig-paths": "4.2.3"
   }
 }
