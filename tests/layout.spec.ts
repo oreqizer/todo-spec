@@ -7,6 +7,10 @@ test.describe('visual', () => {
     await page.goto('/');
   });
 
+  test('screenshot', async ({ page }) => {
+    await expect(page).toHaveScreenshot();
+  });
+
   test('screenshot heading', async ({ page }) => {
     await expect(page.getByTestId('heading')).toHaveScreenshot();
   });
