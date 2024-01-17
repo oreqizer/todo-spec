@@ -9,13 +9,13 @@ test.describe('visual', () => {
   });
 
   test('screenshot done', async ({ mount }) => {
-    const component = await mount(<InputField value="Do stuff" showDone />);
+    const component = await mount(<InputField showDone value="Do stuff" />);
 
     await expect(component).toHaveScreenshot();
   });
 
   test('screenshot editing', async ({ mount }) => {
-    const component = await mount(<InputField value="Do stuff" isEditing />);
+    const component = await mount(<InputField isEditing value="Do stuff" />);
 
     await component.getByLabel('todo text').focus();
 
@@ -24,7 +24,7 @@ test.describe('visual', () => {
 
   test('screenshot done editing', async ({ mount }) => {
     const component = await mount(
-      <InputField value="Do stuff" showDone isEditing />,
+      <InputField isEditing showDone value="Do stuff" />,
     );
 
     await expect(component).toHaveScreenshot();

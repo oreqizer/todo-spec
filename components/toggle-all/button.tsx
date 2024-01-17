@@ -9,6 +9,7 @@ export default function Button({
 }): React.JSX.Element {
   return (
     <button
+      type="button"
       {...props}
       className={clsx(
         'w-8 rotate-90 text-xl',

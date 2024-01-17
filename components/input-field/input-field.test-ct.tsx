@@ -4,7 +4,7 @@ import InputField from './input-field';
 test.describe('visual', () => {
   test('screenshot', async ({ mount }) => {
     const component = await mount(
-      <InputField value="Do stuff" label="label" />,
+      <InputField label="label" value="Do stuff" />,
     );
 
     await expect(component).toHaveScreenshot();
@@ -12,7 +12,7 @@ test.describe('visual', () => {
 
   test('screenshot focused', async ({ mount }) => {
     const component = await mount(
-      <InputField value="Do stuff" label="label" />,
+      <InputField label="label" value="Do stuff" />,
     );
 
     await component.getByLabel('label').focus();
@@ -22,7 +22,7 @@ test.describe('visual', () => {
 
   test('screenshot placeholder', async ({ mount }) => {
     const component = await mount(
-      <InputField placeholder="What to do?" label="label" />,
+      <InputField label="label" placeholder="What to do?" />,
     );
 
     await expect(component).toHaveScreenshot();

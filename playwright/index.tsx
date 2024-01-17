@@ -4,7 +4,7 @@ import '@/app/globals.css';
 
 beforeMount(async ({ App, hooksConfig }) => {
   return (
-    <div className="p-4 dark:bg-neutral-800 bg-neutral-100">
+    <div className="bg-neutral-100 p-4 dark:bg-neutral-800">
       <App />
     </div>
   );

@@ -18,7 +18,7 @@ export default function FormCompleted({
     >
       <input hidden name="id" readOnly value={id} />
 
-      <Completed isEditing={isEditing} completed={completed} />
+      <Completed completed={completed} isEditing={isEditing} />
     </form>
   );
 }

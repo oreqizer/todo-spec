@@ -14,7 +14,7 @@ export default function FormDelete({ id }: { id: number }): React.JSX.Element {
         className="absolute right-5 top-0 flex h-full items-center text-center group-hover:block"
         type="submit"
       >
-        <span className="text-primary opacity-50 transition-opacity hover:opacity-100 dark:text-primary-light">
+        <span className="text-red-600 transition-colors hover:text-red-500 hover:opacity-100 dark:text-red-500 hover:dark:text-red-400">
           ╳
         </span>
       </button>

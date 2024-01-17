@@ -29,6 +29,7 @@ export default defineConfig({
 
     // Configure Vite plugins
     ctViteConfig: {
+      // @ts-expect-error -- peer dependency vite conflict
       plugins: [viteTSConfigPaths()],
     },
   },

@@ -18,8 +18,8 @@ export default function InputField({
           inputStyles,
           'cursor-default py-3 transition-colors',
           showDone
-            ? 'text-neutral-300 line-through dark:text-neutral-600'
-            : 'text-neutral-500 dark:text-neutral-400',
+            ? 'text-neutral-300 line-through dark:text-neutral-400'
+            : 'text-neutral-500 dark:text-neutral-200',
           isEditing && 'outline-1 outline-neutral-300 dark:outline-neutral-600',
         )}
       />

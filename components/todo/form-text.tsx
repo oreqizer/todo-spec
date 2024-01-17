@@ -66,9 +66,8 @@ export default function FormText({
       <input hidden type="submit" />
 
       <InputField
-        showDone={showDone}
-        isEditing={isEditing}
         defaultValue={text}
+        isEditing={isEditing}
         maxLength={100}
         minLength={2}
         name="text"
@@ -77,6 +76,7 @@ export default function FormText({
         onKeyPress={handleKeyPress}
         readOnly={!isEditing}
         required
+        showDone={showDone}
         size={40}
         type="text"
       />

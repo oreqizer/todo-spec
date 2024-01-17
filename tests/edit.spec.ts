@@ -68,6 +68,6 @@ test.describe('edit a todo', () => {
     await expect(page.getByTestId('todo-item')).toHaveCount(4);
     await expect(
       page.getByTestId('todo-item').getByText('Eat six eggs'),
-    ).not.toBeVisible();
+    ).toBeHidden();
   });
 });
