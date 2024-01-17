@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { addTodo } from '@/components/todo-form/actions';
+import { addTodoAction } from '@/components/todo-form/actions';
 import InputField from '@/components/input-field';
 
 export default function TodoForm(): React.JSX.Element {
@@ -15,7 +15,7 @@ export default function TodoForm(): React.JSX.Element {
           ref.current.value = '';
         }
 
-        await addTodo(form);
+        await addTodoAction(form);
       }}
       data-testid="todo-form"
     >

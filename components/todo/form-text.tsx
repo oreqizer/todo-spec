@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { deleteTodo, editTodo } from '@/components/todo/actions';
+import { deleteTodoAction, editTodoAction } from '@/components/todo/actions';
 import InputField from './input-field';
 
 export default function FormText({
@@ -23,7 +23,7 @@ export default function FormText({
     const form = new FormData();
     form.set('id', String(id));
 
-    deleteTodo(form).catch(() => {
+    deleteTodoAction(form).catch(() => {
       //
     });
   }
@@ -55,7 +55,7 @@ export default function FormText({
     <form
       // eslint-disable-next-line @typescript-eslint/no-misused-promises -- server action
       action={async (form) => {
-        await editTodo(form);
+        await editTodoAction(form);
 
         onChangeEditing(false);
       }}

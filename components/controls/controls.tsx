@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { revalidatePath } from 'next/cache';
 import { clsx } from 'clsx';
-import { queryActive } from '@/data/queries';
-import { write } from '@/data/db';
+import { clearCompleted } from '@/data/mutations/clear-completed';
+import ItemsLeft from "@/components/controls/items-left";
 import Filters from './filters';
 import classes from './controls.module.css';
-import ItemsLeft from "@/components/controls/items-left";
 
 export default function Controls({
   itemsLeft,
@@ -14,12 +13,10 @@ export default function Controls({
   itemsLeft: number;
   show?: string;
 }): React.JSX.Element {
-  async function clearCompleted(): Promise<void> {
+  async function clearCompletedAction(): Promise<void> {
     'use server';
 
-    const active = await queryActive();
-
-    await write(active);
+    await clearCompleted();
 
     revalidatePath('/');
   }
@@ -39,7 +36,7 @@ export default function Controls({
       <div className="relative flex-1 text-right">
         <form
           // eslint-disable-next-line @typescript-eslint/no-misused-promises -- server action
-          action={clearCompleted}
+          action={clearCompletedAction}
         >
           <button
             className="cursor-pointer font-light hover:underline"

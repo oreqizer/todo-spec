@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { deleteTodo } from '@/components/todo/actions';
+import { deleteTodoAction } from '@/components/todo/actions';
 
 export default function FormDelete({ id }: { id: number }): React.JSX.Element {
   return (
     <form
       // eslint-disable-next-line @typescript-eslint/no-misused-promises -- server action
-      action={deleteTodo}
+      action={deleteTodoAction}
     >
       <input hidden name="id" readOnly value={id} />
 

@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { toggleAll } from '@/components/toggle-all/actions';
+import { toggleAllAction } from '@/components/toggle-all/actions';
 import Button from './button';
 
 export default function ToggleAll({
@@ -13,7 +13,7 @@ export default function ToggleAll({
     <Button
       aria-label="toggle all"
       onClick={() => {
-        toggleAll(!allDone).catch(() => {
+        toggleAllAction(!allDone).catch(() => {
           //
         });
       }}

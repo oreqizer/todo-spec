@@ -1,13 +1,10 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
-import { queryAll } from '@/data/queries';
-import { write } from '@/data/db';
+import { toggleAll } from '@/data/mutations/toggle-all';
 
-export async function toggleAll(completed: boolean): Promise<void> {
-  const all = await queryAll();
-
-  await write(all.map((todo) => ({ ...todo, completed })));
+export async function toggleAllAction(completed: boolean): Promise<void> {
+  await toggleAll(completed);
 
   revalidatePath('/');
 }

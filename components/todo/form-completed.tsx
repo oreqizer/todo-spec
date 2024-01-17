@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { toggleTodo } from '@/components/todo/actions';
+import { toggleTodoAction } from '@/components/todo/actions';
 import Completed from './completed';
 
 export default function FormCompleted({
@@ -14,7 +14,7 @@ export default function FormCompleted({
   return (
     <form
       // eslint-disable-next-line @typescript-eslint/no-misused-promises -- server action
-      action={toggleTodo}
+      action={toggleTodoAction}
     >
       <input hidden name="id" readOnly value={id} />
 
