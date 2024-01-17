@@ -2,7 +2,7 @@ import * as React from 'react';
 import { revalidatePath } from 'next/cache';
 import { clsx } from 'clsx';
 import { clearCompleted } from '@/data/mutations/clear-completed';
-import ItemsLeft from "@/components/controls/items-left";
+import ItemsLeft from '@/components/controls/items-left';
 import Filters from './filters';
 import classes from './controls.module.css';
 

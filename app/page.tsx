@@ -17,7 +17,10 @@ export default async function Index({
   ]);
 
   return (
-    <section className="bg-neutral-50 shadow-lg dark:bg-neutral-900" data-testid="content">
+    <section
+      className="bg-neutral-50 shadow-lg dark:bg-neutral-900"
+      data-testid="content"
+    >
       <div
         className="relative flex w-full items-center gap-x-4 px-4 shadow-[inset_0_-2px_1px_rgba(0,0,0,0.07)] dark:shadow-[inset_0_-2px_1px_rgba(255,255,255,0.1)]"
         data-testid="input"

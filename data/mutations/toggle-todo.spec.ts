@@ -11,7 +11,9 @@ describe('toggle todo', () => {
   test('will reject empty form', async () => {
     const form = new FormData();
 
-    await expect(() => toggleTodo(form)).rejects.toThrowError('Invalid form data');
+    await expect(() => toggleTodo(form)).rejects.toThrowError(
+      'Invalid form data',
+    );
   });
 
   test('toggles a todo', async () => {

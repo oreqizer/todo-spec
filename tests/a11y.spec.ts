@@ -7,6 +7,7 @@ test.describe('accessibility', () => {
   });
 
   test('page is accessible', async ({ page }) => {
+    // @ts-expect-error -- AxeBuilder type is not compatible with playwright
     const res = await new AxeBuilder({ page }).analyze();
 
     expect(res.violations).toEqual([]);
