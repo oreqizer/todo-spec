@@ -12,7 +12,7 @@ export async function editTodoAction(form: FormData): Promise<void> {
 }
 
 export async function toggleTodoAction(form: FormData): Promise<void> {
-  toggleTodo(form);
+  await toggleTodo(form);
 
   revalidatePath('/');
 }
