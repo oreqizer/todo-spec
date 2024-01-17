@@ -18,6 +18,12 @@ The meat-and-potatoes of this project are its tests. There are **five** types of
 - **Unit tests** that verify core business logic of the app
 - **Component visual tests** that make sure individual components look as they should
 
+To run them:
+
+- `pnpm verify` runs UI, a11y and layout visual tests
+- `pnpm test-ct` runs component visual tests
+- `pnpm test` runs unit tests
+
 ## License
 
 MIT
