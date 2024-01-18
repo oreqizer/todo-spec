@@ -8,9 +8,11 @@ import classes from './controls.module.css';
 
 export default function Controls({
   itemsLeft,
+  itemsCompleted,
   show,
 }: {
   itemsLeft: number;
+  itemsCompleted: number;
   show?: string;
 }): React.JSX.Element {
   async function clearCompletedAction(): Promise<void> {
@@ -33,7 +35,12 @@ export default function Controls({
 
       <Filters show={show} />
 
-      <div className="relative flex-1 text-right">
+      <div
+        className={clsx(
+          'relative flex-1 text-right',
+          itemsCompleted === 0 && 'invisible',
+        )}
+      >
         <form
           // eslint-disable-next-line @typescript-eslint/no-misused-promises -- server action
           action={clearCompletedAction}

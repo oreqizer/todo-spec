@@ -34,3 +34,9 @@ export async function queryItemsLeft(): Promise<number> {
 
   return todos.length;
 }
+
+export async function queryItemsCompleted(): Promise<number> {
+  const todos = await queryCompleted();
+
+  return todos.length;
+}

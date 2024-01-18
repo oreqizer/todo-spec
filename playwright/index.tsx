@@ -5,7 +5,7 @@ import '@/app/globals.css';
 // eslint-disable-next-line @typescript-eslint/require-await -- required for beforeMount
 beforeMount(async ({ App }) => {
   return (
-    <div className="bg-neutral-100 p-4 dark:bg-neutral-800">
+    <div className="bg-neutral-100 p-4 dark:bg-neutral-800 dark:text-neutral-100">
       <App />
     </div>
   );

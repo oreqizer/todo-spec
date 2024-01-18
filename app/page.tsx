@@ -1,5 +1,9 @@
 import * as React from 'react';
-import { queryFilter, queryItemsLeft } from '@/data/queries';
+import {
+  queryFilter,
+  queryItemsCompleted,
+  queryItemsLeft,
+} from '@/data/queries';
 import TodoForm from '@/components/todo-form';
 import ToggleAll from '@/components/toggle-all';
 import Todo from '@/components/todo';
@@ -11,9 +15,10 @@ export default async function Index({
   searchParams: Record<string, string | string[] | undefined>;
 }): Promise<React.JSX.Element> {
   const show = searchParams.show as string | undefined;
-  const [todos, itemsLeft] = await Promise.all([
+  const [todos, itemsLeft, itemsCompleted] = await Promise.all([
     queryFilter(show),
     queryItemsLeft(),
+    queryItemsCompleted(),
   ]);
 
   return (
@@ -43,7 +48,13 @@ export default async function Index({
         </ul>
       )}
 
-      {itemsLeft !== 0 && <Controls itemsLeft={itemsLeft} show={show} />}
+      {itemsLeft !== 0 && (
+        <Controls
+          itemsCompleted={itemsCompleted}
+          itemsLeft={itemsLeft}
+          show={show}
+        />
+      )}
     </section>
   );
 }
