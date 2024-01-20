@@ -24,6 +24,6 @@ test.describe('visual empty', () => {
   });
 
   test('screenshot', async ({ page }) => {
-    await expect(page.getByTestId('content')).toHaveScreenshot();
+    await expect(page).toHaveScreenshot();
   });
 });
