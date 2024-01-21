@@ -88,7 +88,7 @@ describe('form text', () => {
       <FormText
         completed={false}
         id={1}
-        isEditing
+        isEditing={false}
         onChangeEditing={onChangeEditing}
         onDelete={onDelete}
         onEdit={onEdit}
