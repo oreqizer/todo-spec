@@ -76,6 +76,7 @@ describe('form text', () => {
     await userEvent.dblClick(input);
 
     expect(onChangeEditing).toHaveBeenCalledWith(true);
+    expect(input).toHaveFocus();
   });
 
   test('deletes an empty todo on submit', async () => {
