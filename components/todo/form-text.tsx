@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { deleteTodoAction, editTodoAction } from '@/components/todo/actions';
 import InputField from './input-field';
 
 export default function FormText({
@@ -7,30 +6,25 @@ export default function FormText({
   text,
   completed,
   isEditing,
+  onEdit,
+  onDelete,
   onChangeEditing,
 }: {
   id: number;
   text: string;
   completed: boolean;
   isEditing: boolean;
+  onEdit: (form: FormData) => Promise<void>;
+  onDelete: () => void;
   onChangeEditing: (editing: boolean) => void;
 }): React.JSX.Element {
   const ref = React.useRef<HTMLFormElement>(null);
 
   const showDone = !isEditing && completed;
 
-  function handleDelete(): void {
-    const form = new FormData();
-    form.set('id', String(id));
-
-    deleteTodoAction(form).catch(() => {
-      //
-    });
-  }
-
   function handleBlur(ev: React.FocusEvent<HTMLInputElement>): void {
     if (ev.currentTarget.value === '') {
-      handleDelete();
+      onDelete();
       return;
     }
 
@@ -47,7 +41,7 @@ export default function FormText({
 
   function handleKeyPress(ev: React.KeyboardEvent<HTMLInputElement>): void {
     if (ev.currentTarget.value === '' && ev.key === 'Enter') {
-      handleDelete();
+      onDelete();
     }
   }
 
@@ -55,11 +49,12 @@ export default function FormText({
     <form
       // eslint-disable-next-line @typescript-eslint/no-misused-promises -- server action
       action={async (form) => {
-        await editTodoAction(form);
+        await onEdit(form);
 
         onChangeEditing(false);
       }}
       data-testid="todo-item-form"
+      ref={ref}
     >
       <input hidden name="id" readOnly value={id} />
 
